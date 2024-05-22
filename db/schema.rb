@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_231904) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_22_002507) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fish", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "fishImage"
+  end
+
+  create_table "fishes_spots", force: :cascade do |t|
+    t.bigint "spot_id", null: false
+    t.bigint "fish_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fish_id"], name: "index_fishes_spots_on_fish_id"
+    t.index ["spot_id"], name: "index_fishes_spots_on_spot_id"
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.float "longitude"
+    t.float "latitude"
+    t.string "name"
+    t.string "region"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "spotImage"
+    t.string "regionImage"
+  end
+
+  create_table "user_spots", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "spot_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_user_spots_on_spot_id"
+    t.index ["user_id"], name: "index_user_spots_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +62,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_231904) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "fishes_spots", "fish"
+  add_foreign_key "fishes_spots", "spots"
+  add_foreign_key "user_spots", "spots"
+  add_foreign_key "user_spots", "users"
 end

@@ -1,0 +1,2 @@
+class UserSpotController < ApplicationController
+end
