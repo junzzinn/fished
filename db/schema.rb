@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_22_002507) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_23_225007) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,15 +30,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_22_002507) do
     t.index ["spot_id"], name: "index_fishes_spots_on_spot_id"
   end
 
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "spots", force: :cascade do |t|
     t.float "longitude"
     t.float "latitude"
     t.string "name"
-    t.string "region"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "spotImage"
     t.string "regionImage"
+    t.bigint "region_id", null: false
+    t.index ["region_id"], name: "index_spots_on_region_id"
   end
 
   create_table "user_spots", force: :cascade do |t|
@@ -64,6 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_22_002507) do
 
   add_foreign_key "fishes_spots", "fish"
   add_foreign_key "fishes_spots", "spots"
+  add_foreign_key "spots", "regions"
   add_foreign_key "user_spots", "spots"
   add_foreign_key "user_spots", "users"
 end
