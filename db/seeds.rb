@@ -44,11 +44,15 @@ beach_names = [
     password: "password"
   )
 
+  region = Region.create!(
+    name: Faker::Address.city
+  )
+
   spot1 = Spot.create!(
     longitude: Faker::Address.longitude,
     latitude: Faker::Address.latitude,
     name: beach_names.sample,
-    region: Faker::Address.city,
+    region: region,
     spotImage: beachImages.sample,
     regionImage: regionImage.sample
   )
