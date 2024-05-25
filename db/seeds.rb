@@ -13,7 +13,7 @@ fish_names = {
   "Goldfish" => "https://t3.ftcdn.net/jpg/01/08/68/84/360_F_108688475_hd0C2OVeOvosjDtDMIMg89q7MFTsR1Oy.jpg",
   "Salmon" => "https://www.gastronomiavasca.net/uploads/image/file/3268/salmon.jpg",
   "Clownfish" => "https://cdn.awsli.com.br/2500x2500/2599/2599158/produto/222903609142a84c856.jpg",
-  "Betta" => "https://aquariosparapeixes.com/wp-content/uploads/2022/09/Betta-Plakat.webp",
+  "Betta" => "https://cdn.discordapp.com/attachments/813179928694489110/1243935244541890570/image.png?ex=66534879&is=6651f6f9&hm=888b24669e08b3f3ef19cf5faa63712ed2b07ed7d3c60a3aafb2b2b4213a7228&",
   "Tuna" => "https://fishcode.com.br/cdn/shop/files/BlackFintunaThunnusatlanticus_1.png?v=1700761551",
   "Shark" => "https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/great-white-shark-side-profile-corey-ford.jpg",
   "Eel" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1cLg7paU0Gcy6ScxlBp6m92B0GGpMY6y0bRULPqfJ6A&s",

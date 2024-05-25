@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+    <% @fishs = Fish.all%>
+    <% @fishs.each do |fish| %>
+      <%= render partial: 'shared/fish_card', locals: {fish: fish} %>
+    <% end %>
     <%= yield %>
+    <%= render "shared/navbar" %>
   </body>
 </html>
