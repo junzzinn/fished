@@ -1,0 +1,23 @@
+<%= link_to path, class: "square-button" do %>
+  <i class="<%= icon %>"></i>
+
+  <style>
+    .square-button {
+      background-color: turquoise;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .square-button:hover {
+      background-color: #48D1CC;
+    }
+
+    .square-button i {
+      margin-right: 3px;
+    }
+  </style>
+<% end %>
