@@ -1,0 +1,36 @@
+.btn-custom {
+  background-color: #40D3C4;
+  border-color: #40D3C4;
+  width: 100%;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+.log-in-title {
+  color: #40D3C4;
+  font-size: 22px;
+}
+
+.log-in-subtitle {
+  color: #999898;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.log-in-text {
+  color: #999898;
+  font-size: 11px;
+}
+
+.log-in-input {
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #5f5f5f;
+  font-size: 12px;
+}
+
+.log-in-input::placeholder {
+  color: #999898; /* Placeholder color */
+  font-size: 12px; /* Placeholder font size */
+}
