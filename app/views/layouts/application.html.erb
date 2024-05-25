@@ -5,92 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/assets/stylesheets/components/forecast.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <style>
+    body {
+        font-family: 'Inter';
+    }
+    </style>
   </head>
 
   <body><%= render "shared/navbar" %>
 
-  <section class="vh-100">
-    <div class="container py-5">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-7 col-xl-5">
-          <div id="wrapper-bg" class="forecast-tab card text-white bg-image shadow-4-strong" style="background-image: url('img/clouds.gif')">
-            <img src="https://i.pinimg.com/originals/19/8d/ae/198daeda14097d45e417e62ff283f10e.png" class="cloud-image" alt="Cloud">
-            <!-- Main current data -->
-            <div class="card-header p-4 border-0">
-              <div class="text-center mb-3">
-                <p class="h2 mb-1" id="wrapper-name"></p>
-                <p class="mb-1" id="wrapper-description"></p>
-                <p class="display-1 mb-1" id="wrapper-temp"></p>
-                <span class="">Pressure: <span id="wrapper-pressure"></span></span>
-                <span class="mx-2">|</span>
-                <span class="">Humidity: <span id="wrapper-humidity"></span></span>
-              </div>
-            </div>
-            <!-- Hourly forecast -->
-            <div class="card-body p-4 border-top border-bottom mb-2">
-              <div class="row text-center">
-                <!-- Forecast Item 1 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time1"></strong>
-                  <img id="wrapper-icon-hour1" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour1"></strong>
-                </div>
-                <!-- Forecast Item 2 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time2"></strong>
-                  <img id="wrapper-icon-hour2" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour2"></strong>
-                </div>
-                <!-- Forecast Item 3 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time3"></strong>
-                  <img id="wrapper-icon-hour3" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour3"></strong>
-                </div>
-                <!-- Forecast Item 4 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time4"></strong>
-                  <img id="wrapper-icon-hour4" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour4"></strong>
-                </div>
-                <!-- Forecast Item 5 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time5"></strong>
-                  <img id="wrapper-icon-hour5" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour5"></strong>
-                </div>
-              </div>
-            </div>
-            <!-- Daily forecast -->
-            <div class="card-body px-5">
-              <div class="row align-items-center">
-                <!-- Forecast Item Today -->
-                <div class="col-lg-6 forecast-item">
-                  <strong>Today</strong>
-                </div>
-                <!-- Forecast Item Tomorrow -->
-                <div class="col-lg-6 forecast-item">
-                  <strong>Tomorrow</strong>
-                </div>
-                <!-- Forecast Item Day after tomorrow -->
-                <div class="col-lg-6 forecast-item">
-                  <strong>Day after tomorrow</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<script src="/javascript/forecast.js"></script>
-
 <%= render "shared/flashes" %>
     <%= yield %>
+    <%# <%= render "shared/navbar" %>
   </body>
 </html>
