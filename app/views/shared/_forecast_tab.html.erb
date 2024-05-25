@@ -1,74 +1,43 @@
-<section class="vh-100">
-    <div class="container py-5">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-7 col-xl-5">
-          <div id="wrapper-bg" class="forecast-tab card text-white bg-image shadow-4-strong" style="background-image: url('img/clouds.gif')">
-            <!-- Temperature part -->
-            <div class="temperature-part">
-              <p id="current-temperature"></p>
-            </div>
-            <!-- Cloud image -->
-            <img src="https://toppng.com/uploads/preview/clouds-drawing-png-11552338570wseaafg3xh.png" alt="" class="cloud-image">
-            <!-- Main current data -->
-            <div class="card-header p-4 border-0">
-              <div class="text-center mb-3">
-                <p class="h2 mb-1" id="wrapper-name"></p>
-                <p class="mb-1" id="wrapper-description"></p>
-                <p class="display-1 mb-1" id="wrapper-temp"></p>
-                <span class="">Pressure: <span id="wrapper-pressure"></span></span>
-                <span class="mx-2">|</span>
-                <span class="">Humidity: <span id="wrapper-humidity"></span></span>
-              </div>
-            </div>
-            <!-- Hourly forecast -->
-            <div class="card-body p-4 border-top border-bottom mb-2">
-              <div class="row text-center">
-                <!-- Forecast Item 1 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time1"></strong>
-                  <img id="wrapper-icon-hour1" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour1"></strong>
-                </div>
-                <!-- Forecast Item 2 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time2"></strong>
-                  <img id="wrapper-icon-hour2" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour2"></strong>
-                </div>
-                <!-- Forecast Item 3 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time3"></strong>
-                  <img id="wrapper-icon-hour3" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour3"></strong>
-                </div>
-                <!-- Forecast Item 4 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time4"></strong>
-                  <img id="wrapper-icon-hour4" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour4"></strong>
-                </div>
-                <!-- Forecast Item 5 -->
-                <div class="col-2 forecast-item">
-                  <strong class="d-block mb-2" id="wrapper-time5"></strong>
-                  <img id="wrapper-icon-hour5" src="" class="" alt="" />
-                  <strong class="d-block" id="wrapper-hour5"></strong>
-                </div>
-              </div>
-            </div>
-            <!-- Daily forecast -->
-            <div class="card-body px-5">
-              <div class="row align-items-center">
-                <!-- Forecast Item Today -->
-                <div class="col-lg-6 forecast-item">
-                  <strong>Today</strong>
-                </div>
-                <!-- Forecast Item Tomorrow -->
-                <div class="col-lg-6 forecast-item">
-                  <strong>Tomorrow</strong>
-                </div>
-                <!-- Forecast Item Day after tomorrow -->
-                <div class="col-lg-6 forecast-item">
-                  <strong>Day after tomorrow</strong>
+<section class="vh-100" style="background-color: #C1CFEA;">
+    <div class="container py-5 h-100">
+      <div class="card" style="border-radius: 25px;">
+        <div class="card-body p-4">
+          <div id="demo3" data-mdb-carousel-init class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ul class="carousel-indicators mb-0">
+              <li data-target="#demo3" data-slide-to="0"></li>
+              <li data-target="#demo3" data-slide-to="1"></li>
+              <li data-target="#demo3" data-slide-to="2" class="active"></li>
+            </ul>
+            <!-- Carousel inner -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
+                  <div class="flex-column">
+                    <p class="small"><strong>21°C</strong></p>
+                    <i class="fas fa-sun fa-2x mb-3"></i>
+                    <p class="mb-0"><strong>Mon</strong></p>
+                  </div>
+                  <div class="flex-column">
+                    <p class="small"><strong>20°C</strong></p>
+                    <i class="fas fa-sun fa-2x mb-3"></i>
+                    <p class="mb-0"><strong>Tue</strong></p>
+                  </div>
+                  <div class="flex-column">
+                    <p class="small"><strong>16°C</strong></p>
+                    <i class="fas fa-cloud fa-2x mb-3"></i>
+                    <p class="mb-0"><strong>Wed</strong></p>
+                  </div>
+                  <div class="flex-column">
+                    <p class="small"><strong>17°C</strong></p>
+                    <i class="fas fa-cloud fa-2x mb-3"></i>
+                    <p class="mb-0"><strong>Thu</strong></p>
+                  </div>
+                  <div class="flex-column">
+                    <p class="small"><strong>18°C</strong></p>
+                    <i class="fas fa-cloud-showers-heavy fa-2x mb-3"></i>
+                    <p class="mb-0"><strong>Fri</strong></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -78,4 +47,36 @@
     </div>
   </section>
 
-<script src="/javascript/forecast.js"></script>
+ <style>
+    /* Your SCSS code */
+    .gradient-custom {
+      /* fallback for old browsers */
+      background: #ffffff;
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 236, 210, 1));
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 236, 210, 1));
+    }
+
+    .carousel-indicators li {
+      background-color: #282828;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    /* Sun icon with orange color */
+    .fa-sun {
+      color: orange;
+    }
+
+    /* Normal cloud icon with gray color */
+    .fa-cloud {
+      color: gray;
+    }
+
+    /* Rainy cloud icon with blue color */
+    .fa-cloud-showers-heavy {
+      color: blue;
+    }
+  </style>
