@@ -1,0 +1,36 @@
+$turquoise-green: #4a9170;
+$turquoise-green-darker: #8fcfcc; // Darker shade of turquoise-green
+
+.forecast-tab {
+  background: linear-gradient(0.25turn, $turquoise-green, $turquoise-green-darker) !important;
+  position: relative;
+  width: 70%;
+  max-width: 300px;
+  height: auto;
+  max-height: 50vh;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.cloud-image {
+  position: absolute;
+  top: 43%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 100px;
+  height: auto;
+  background-color: transparent;
+}
+
+.forecast-header {
+  font-size: 24px;
+  color: #333;
+}
+
+.forecast-item {
+  margin-bottom: 10px;
+}
+
+.forecast-item .temperature {
+  font-weight: bold;
+}
