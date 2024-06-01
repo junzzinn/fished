@@ -16,4 +16,6 @@ Rails.application.routes.draw do
       resources :fish_spots, only: [:new, :create, :index, :delete]
     end
   end
+  resources :users, only: [:index, :edit, :update, :destroy]
+  
 end
