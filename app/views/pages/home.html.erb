@@ -1,0 +1,16 @@
+<div class="welcome-message">
+  <% if @user_name.present? %>
+    <p>Hello <%= @user_name %></p>
+  <% else %>
+    <p>Hello Guest</p>
+  <% end %>
+</div>
+
+<div class="button-container">
+  <%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %>
+  <%= render "shared/square_button", path: root_path, icon_class: "fas fa-location-dot", class_name: "bubble" %>
+</div>
+
+<%= render "shared/flashes" %>
+<%= render "shared/forecast_tab" %>
+<%= render "shared/navbar" %>
