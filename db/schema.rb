@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_23_225007) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_25_181416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_23_225007) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "regionImage"
   end
 
   create_table "spots", force: :cascade do |t|
@@ -43,7 +44,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_23_225007) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "spotImage"
-    t.string "regionImage"
     t.bigint "region_id", null: false
     t.index ["region_id"], name: "index_spots_on_region_id"
   end

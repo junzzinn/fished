@@ -1,0 +1,52 @@
+/* app/assets/stylesheets/styles.css */
+
+.horizontal-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.horizontal-scroll-items {
+  display: flex;
+}
+
+.region-card {
+  display: inline-block;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  width: 250px;
+  height: 400px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  overflow: visible; /* Ensure overflow is visible */
+}
+
+.region-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+  z-index: 1;
+  border-radius: 12px;
+}
+
+.region-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.region-card .btn {
+  position: absolute;
+  bottom: -20px; /* Adjust this value to position button half outside */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+}
