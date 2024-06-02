@@ -2,10 +2,12 @@
   <div class="horizontal-scroll-items">
     <% regions.each do |region| %>
       <%= link_to region_path(region), class: "m-2 region-card", style: "text-decoration: none; background-image: url('#{region.regionImage}');" do %>
-        <h1 class="text-center" style="color: white; font-weight: bold; width: 250px;"><%= region.name %></h1>
-        <div class="m-3" style="max-width: 100%; ">
-          <div class="border" style="height: 150px; background-color: white; border-radius: 12px; width: 100%"></div>
-          <button class="btn btn-custom" style="display: block; margin: 0 auto;">Explore</button>
+        <div id="box-info">
+          <h1 class="text-center" style="color: white; font-weight: bold; width: 250px;"><%= region.name %></h1>
+          <div class="m-3" style="max-width: 100%;">
+            <div class="border" style="height: 150px; background-color: white; border-radius: 12px; width: 100%;"></div>
+            <button class="btn btn-custom mt-4" style="width: 65%; display: block; margin: 0 auto; font-size: 12px">Explore</button>
+          </div>
         </div>
       <% end %>
     <% end %>

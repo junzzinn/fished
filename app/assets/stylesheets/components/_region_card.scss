@@ -1,9 +1,8 @@
-/* app/assets/stylesheets/styles.css */
-
 .horizontal-scroll-container {
   width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
+  height: 430px;
 }
 
 .horizontal-scroll-items {
@@ -11,10 +10,13 @@
 }
 
 .region-card {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   margin-right: 10px;
   border: 1px solid #ccc;
-  width: 250px;
+  min-width: 250px;
+  max-width: 250px;
   height: 400px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,10 +45,6 @@
   z-index: 2;
 }
 
-.region-card .btn {
-  position: absolute;
-  bottom: -20px; /* Adjust this value to position button half outside */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70%;
+#box-info {
+  margin-bottom: -30px; /* Adjust this value as needed */
 }
