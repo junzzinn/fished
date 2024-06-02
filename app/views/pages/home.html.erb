@@ -14,3 +14,6 @@
 <%= render "shared/flashes" %>
 <%= render "shared/forecast_tab" %>
 <%= render "shared/navbar" %>
+<%= render "shared/navbar" %>
+<% @regions = Region.all %>
+<%= render partial: "shared/region_card", locals: { regions: @regions } %>
