@@ -6,13 +6,11 @@
   <% end %>
 </div>
 
-<% @regions = Region.all %>
 <div class="button-container">
   <%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %>
   <%= render "shared/square_button", path: root_path, icon_class: "fas fa-location-dot", class_name: "bubble" %>
 </div>
-<%= render partial: "shared/region_card", locals: { regions: @regions } %>
 
 <%= render "shared/flashes" %>
-<%= render "shared/forecast_tab" %>
+<%= render "shared/complete_forecast" %>
 <%= render "shared/navbar" %>
