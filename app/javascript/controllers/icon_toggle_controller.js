@@ -4,15 +4,23 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["icon"];
 
-  connect() {}
+  connect() {
+    const activeTab = localStorage.getItem("activeTab");
+    if (activeTab) {
+      this.setActiveIcon(activeTab);
+    }
+  }
 
   toggle(event) {
-    event.preventDefault();
-
     const clickedTab = event.currentTarget.dataset.tab;
+    localStorage.setItem("activeTab", clickedTab);
+    this.setActiveIcon(clickedTab);
+  }
+
+  setActiveIcon(activeTab) {
     this.iconTargets.forEach(icon => {
       const iconTab = icon.dataset.tab;
-      if (clickedTab === iconTab) {
+      if (activeTab === iconTab) {
         icon.classList.add("fas");
         icon.classList.remove("far");
         icon.parentElement.classList.add("active");

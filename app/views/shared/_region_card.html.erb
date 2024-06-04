@@ -1,0 +1,15 @@
+<div class="container horizontal-scroll-container">
+  <div class="horizontal-scroll-items">
+    <% regions.each do |region| %>
+      <%= link_to region_path(region), class: "m-2 region-card", style: "text-decoration: none; background-image: url('#{region.regionImage}');" do %>
+        <div id="box-info">
+          <h1 class="text-center" style="color: white; font-weight: bold; width: 250px;"><%= region.name %></h1>
+          <div style="max-width: 100%;">
+            <%= render partial:"shared/simple_forecast"%>
+            <button class="btn btn-custom" style="width: 65%; display: block; margin: 0 auto; font-size: 12px">Explore</button>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
