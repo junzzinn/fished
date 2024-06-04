@@ -12,5 +12,6 @@
 </div>
 
 <%= render "shared/flashes" %>
+<%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-custom", style: "width: 70%"    %>
 <%= render "shared/complete_forecast" %>
 <%= render "shared/navbar" %>

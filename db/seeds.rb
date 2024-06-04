@@ -36,12 +36,14 @@ beach_names = [
 
   user1 = User.create!(
     email: Faker::Internet.email,
-    password: "password"
+    password: "password",
+    name: Faker::Fantasy::Tolkien.character
   )
 
   user2 = User.create!(
     email: Faker::Internet.email,
-    password: "password"
+    password: "password",
+    name: Faker::Fantasy::Tolkien.character
   )
 
   region = Region.create!(

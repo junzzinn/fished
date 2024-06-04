@@ -1,0 +1,49 @@
+<% if user_signed_in? %>
+  <div class="container">
+    <div class="row mt-2">
+      <div class="col-1">
+        <div class="mb-3" data-controller="icon-toggle">
+          <%= link_to root_path, class: "btn", data: { action: "click->icon-toggle#toggle", tab: "home"} do %>
+            <i class="fas fa-chevron-left"></i>
+          <% end %>
+        </div></div>
+      <div class="col-9"></div>
+      <div class="col-2"><%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %></div>
+    </div>
+    <div class="row justify-content-center my-3">
+      <h2 class="text-center" style="color: #40D3C4;"><strong>Welcome</strong></h2><span><%= @user %></span>
+    </div>
+    <div class="row">
+      <span style="font-size: 12px; color: #999898; padding-left: 50px">Search for the best fishing spots</span>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="d-flex justify-content-center">
+          <div style="width: 85%;">
+            <%= form_with model: @example, local: true do |form| %>
+              <div class="input-group mb-3 shadow" style="background-color: white; border-radius: 20px;">
+                <%= form.text_field :name, class: "form-control", placeholder: "Search fishing spot...", style: "background-color: white; border-radius: 20px 0 0 20px;" %>
+                <button class="btn btn-white" type="submit" style="background-color: white; border-radius: 0 20px 20px 0;">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<%= render partial: "shared/region_card", locals: {regions: @regions} %>
+<% else %>
+  <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="row justify-content-center my-3">
+      <h2 class="text-center" style="color: #40D3C4;"><strong>Welcome</strong></h2>
+      <span class="text-center mb-3">You must be logged in to have favorites!</span>
+      <%= link_to "Log In", new_user_session_path, class: "btn btn-custom", style: "width: 70%" %>
+    </div>
+  </div>
+
+<% end %>
+<%= render "shared/navbar" %>
