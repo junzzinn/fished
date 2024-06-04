@@ -13,7 +13,7 @@
       <% end %>
     </div>
     <div class="col-3 col-sm-3 d-flex justify-content-center align-items-center">
-      <%= link_to "#", class: "icon-button", data: { action: "click->icon-toggle#toggle", tab: "search"} do %>
+      <%= link_to regions_path, class: "icon-button", data: { action: "click->icon-toggle#toggle", tab: "search"} do %>
         <i class="fas fa-search else" data-icon-toggle-target="icon" data-tab="search"></i>
         <span>Search</span>
       <% end %>
