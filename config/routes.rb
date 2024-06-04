@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user_spots/index'
   get 'regions/index'
   devise_for :users
   root to: "pages#home"
