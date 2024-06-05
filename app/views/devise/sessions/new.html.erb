@@ -1,4 +1,4 @@
-<div class="container px-5" >
+<div class="container px-5" data-controller="icon-toggle" >
   <div class="row">
     <%= image_tag "logo.png"%>
   </div>
@@ -20,7 +20,7 @@
                     input_html: { autocomplete: "current-password", class: "log-in-input border", placeholder: "Password" } %>
         <div class="row">
           <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "log-in-text"%><br />
+            <%= link_to "Forgot your password?", new_password_path(resource_name), class: "log-in-text", data: { action: "click->icon-toggle#toggle", tab: "home"}%><br />
           <% end %>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <% end %>
     </div>
     <div class="col-6 col-sm-6 text-center">
-      <%= link_to "Enter as Visitor", root_path , class: "log-in-text" %><br/>
+      <%= link_to "Enter as Visitor", root_path , class: "log-in-text", data: { action: "click->icon-toggle#toggle", tab: "home"} %><br/>
     </div>
   </div>
 </div>

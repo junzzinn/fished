@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :user_spots
   has_many :spots, through: :user_spots
+  has_many :regions, through: :spots
 end
