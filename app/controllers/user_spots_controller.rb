@@ -3,6 +3,7 @@ class UserSpotsController < ApplicationController
   def index
     if user_signed_in?
       @regions = current_user.regions
+      @user = current_user
     end
   end
 end
