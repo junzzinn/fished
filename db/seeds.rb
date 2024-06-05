@@ -59,6 +59,14 @@ beach_names = [
     spotImage: beachImages.sample,
 
   )
+  spot2 = Spot.create!(
+    longitude: Faker::Address.longitude,
+    latitude: Faker::Address.latitude,
+    name: beach_names.sample,
+    region: region,
+    spotImage: beachImages.sample,
+
+  )
 
   fish = fish_names.to_a.sample
 
@@ -84,8 +92,33 @@ beach_names = [
     fish_id: fish2.id
   )
 
+  fish_spot = FishesSpot.create!(
+    spot_id: spot2.id,
+    fish_id: fish1.id
+  )
+
+  fish_spot = FishesSpot.create!(
+    spot_id: spot2.id,
+    fish_id: fish2.id
+  )
+
   user_spot = UserSpot.create!(
     user_id: user1.id,
     spot_id: spot1.id
+  )
+
+  user_spot = UserSpot.create!(
+    user_id: user2.id,
+    spot_id: spot1.id
+  )
+
+  user_spot = UserSpot.create!(
+    user_id: user1.id,
+    spot_id: spot2.id
+  )
+
+  user_spot = UserSpot.create!(
+    user_id: user2.id,
+    spot_id: spot2.id
   )
 end

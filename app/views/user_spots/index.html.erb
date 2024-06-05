@@ -35,7 +35,7 @@
       </div>
     </div>
   </div>
-<%= render partial: "shared/region_card", locals: {regions: @regions} %>
+  <%= render partial: "shared/region_card", locals: {regions: @regions} %>
 <% else %>
   <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="row justify-content-center my-3">
@@ -44,6 +44,5 @@
       <%= link_to "Log In", new_user_session_path, class: "btn btn-custom", style: "width: 70%" %>
     </div>
   </div>
-
 <% end %>
 <%= render "shared/navbar" %>

@@ -1,8 +1,8 @@
 class UserSpotsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index ]
   def index
-    @user = current_user.email
     if user_signed_in?
-      @regions = Region.all
+      @regions = current_user.regions
     end
   end
 end
