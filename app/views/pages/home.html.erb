@@ -7,7 +7,7 @@
         </div>
     </div>
   <% else %>
-    <p>Hello Guest</p>
+    <div class="weather-message d-flex ps-3" style="min-width: 287px;"><strong><p>Hello Guest</p></strong></p></div>
   <% end %>
 </div>
 
@@ -43,3 +43,14 @@
 <%= render "shared/flashes" %>
 <% button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-custom", style: "width: 70%" %>
 <%= render "shared/navbar" %>
+<%= button_to "logout", destroy_user_session_path, method: :delete, class: "logout-button"%>
+<style>
+  .logout-button {
+      border: none;
+      color: #676c6e;
+      text-decoration: none;
+      background-color: transparent;
+      margin-top: 150px;
+      font-weight: bold;
+  }
+</style>
