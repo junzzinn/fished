@@ -1,19 +1,17 @@
-/* _home.scss */
-
 .button-container {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Align items horizontally */
+  flex-direction: row;
+  align-items: center;
   padding: 10px;
 }
 
 .icon-and-forecast {
   display: flex;
-  align-items: flex-start; /* Align items at the start vertically */
+  align-items: center;
 }
 
 .complete-forecast {
-  margin-right: 10px; /* Add spacing between the forecast tab and bell icon */
+  margin-right: 10px;
 }
 
 .square-button {
@@ -25,6 +23,8 @@
   cursor: pointer;
   font-size: 14px;
   text-decoration: none;
+  margin-right: 5px;
+  margin-bottom: 10px;
 }
 
 .square-button:hover {
@@ -33,4 +33,8 @@
 
 .square-button i {
   margin-right: 3px;
+}
+
+.bubble {
+  margin-left: 5px;
 }
