@@ -7,11 +7,13 @@
 </div>
 
 <div class="button-container">
-  <%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %>
   <%= render "shared/square_button", path: root_path, icon_class: "fas fa-location-dot", class_name: "bubble" %>
+  <div class="icon-and-forecast">
+    <%= render "shared/complete_forecast" %>
+    <%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %>
+  </div>
 </div>
 
 <%= render "shared/flashes" %>
 <%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-custom", style: "width: 70%"    %>
-<%= render "shared/complete_forecast" %>
 <%= render "shared/navbar" %>
