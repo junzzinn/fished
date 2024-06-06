@@ -1,0 +1,4 @@
+<% @region.spots.each do |spot| %>
+  <%= render partial: "shared/spot_card", locals:{spot: spot} %>
+<% end %>
+<%= render "shared/navbar" %>
