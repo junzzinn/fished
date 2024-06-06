@@ -1,19 +1,56 @@
-<div class="welcome-message">
+<div class="welcome-message mt-3">
   <% if @user_name.present? %>
-    <p>Hello <%= @user_name %></p>
+    <div class="d-flex justify-content-around">
+      <div style="min-width: 287px;"><p><strong>Hello <%= @user_name %></strong></p></div>
+        <div class="mt-2">
+          <%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %>
+        </div>
+    </div>
   <% else %>
-    <p>Hello Guest</p>
+    <div class="weather-message d-flex ps-3" style="min-width: 287px;"><strong><p>Hello Guest</p></strong></p></div>
   <% end %>
 </div>
 
-<div class="button-container">
-  <%= render "shared/square_button", path: root_path, icon_class: "fas fa-location-dot", class_name: "bubble" %>
-  <div class="icon-and-forecast">
-    <%= render "shared/complete_forecast" %>
-    <%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %>
+<div class="weather-message d-flex ps-3">
+  <p><strong>It's <span style="color: turquoise;">sunny</span> today.</strong></p>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="w-full">
+      <div class="d-flex align-items-center justify-content-around">
+        <%= form_with model: @example, local: true do |form| %>
+          <div class="input-group mb-3 shadow" style="background-color: white; border-radius: 20px; margin-top: 20px;">
+            <%= form.text_field :name, class: "form-control", placeholder: "Search fishing spot...", style: "background-color: white; border-radius: 20px 0 0 0;" %>
+            <button class="btn btn-white" type="submit" style="background-color: white; border-radius: 0 20px 20px 0;">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        <% end %>
+        <% if @user_name.present? %>
+          <div class="ml-2">
+            <%= render "shared/square_button", path: root_path, icon_class: "fas fa-location-dot", class_name: "bubble" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+
+<div class="icon-and-forecast">
+  <%= render "shared/complete_forecast" %>
 </div>
 
 <%= render "shared/flashes" %>
-<%= button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-custom", style: "width: 70%"    %>
+<% button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-custom", style: "width: 70%" %>
 <%= render "shared/navbar" %>
+<%= button_to "logout", destroy_user_session_path, method: :delete, class: "logout-button"%>
+<style>
+  .logout-button {
+      border: none;
+      color: #676c6e;
+      text-decoration: none;
+      background-color: transparent;
+      margin-top: 150px;
+      font-weight: bold;
+  }
+</style>
