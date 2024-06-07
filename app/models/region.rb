@@ -1,3 +1,3 @@
 class Region < ApplicationRecord
-  has_many :spot
+  has_many :spots
 end

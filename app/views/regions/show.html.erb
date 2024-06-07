@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="padding-bottom: 100px">
   <div class="row mt-2">
     <div class="col-1">
       <div class="mb-3" data-controller="icon-toggle">
@@ -10,12 +10,11 @@
     <div class="col-2"><%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %></div>
   </div>
   <div class="row justify-content-center my-3">
-    <h2 class="text-center" style="color: #40D3C4;"><strong>Welcome</strong> <%= user_signed_in? ? @user.name : "Guest" %></h2>
+    <h2 class="text-center" style="color: #40D3C4;"><strong><%= @region.name %></strong></h2>
   </div>
   <div class="row">
-    <span style="font-size: 12px; color: #999898; padding-left: 50px">Search for the best fishing spots</span>
+    <span style="font-size: 12px; color: #999898; padding-left: 50px">Search for your best fishing spots</span>
   </div>
-
   <div class="row">
     <div class="col-sm-6">
       <div class="d-flex justify-content-center">
@@ -33,6 +32,9 @@
 
     </div>
   </div>
+  <% @region.spots.each do |spot| %>
+    <%= render partial: "shared/spot_card", locals:{spot: spot} %>
+  <% end %>
 </div>
-<%= render partial: "shared/region_card", locals: {regions: @regions} %>
+
 <%= render "shared/navbar" %>
