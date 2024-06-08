@@ -43,14 +43,66 @@
 <%= render "shared/flashes" %>
 <% button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-custom", style: "width: 70%" %>
 <%= render "shared/navbar" %>
-<%= button_to "logout", destroy_user_session_path, method: :delete, class: "logout-button"%>
+
+<h3 style="margin-top: 20px; padding: 8px 20px;">Locations</h3>
+<div class="buttons-container mt-3">
+  <button class="button <%= params[:location] == 'all' ? 'selected' : '' %>">All</button>
+  <button class="button <%= params[:location] == 'recently' ? 'selected' : '' %>">Recently</button>
+  <button class="button <%= params[:location] == 'favorites' ? 'selected' : '' %>">Favorites</button>
+</div>
+
+<div class="image-container">
+  <% @region_images.each do |image_url| %>
+    <img src="<%= image_url %>" alt="Image">
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <%= button_to "logout", destroy_user_session_path, method: :delete, class: "logout-button" %>
+<% end %>
+
 <style>
   .logout-button {
-      border: none;
-      color: #676c6e;
-      text-decoration: none;
-      background-color: transparent;
-      margin-top: 150px;
-      font-weight: bold;
+    border: none;
+    color: #676c6e;
+    text-decoration: none;
+    background-color: transparent;
+    margin-top: 150px;
+    font-weight: bold;
+  }
+
+  .button {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    padding: 8px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: turquoise;
+  }
+
+  .button.selected {
+    background-color: turquoise;
+  }
+
+  .buttons-container {
+    text-align: center;
+  }
+
+  .image-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 20px;
+  }
+
+  .image-container img {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 20px;
+    padding: 5px;
   }
 </style>
