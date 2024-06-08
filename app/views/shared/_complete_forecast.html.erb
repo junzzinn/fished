@@ -4,55 +4,53 @@
       <div class="cardgradient-custom" style="border-radius: 15px; background: linear-gradient(to right, #4c7183, #39a7a5); border: none">
         <div class="card-body p-1">
           <div id="demo1" data-mdb-carousel-init class="carousel slide" data-ride="carousel">
-            <!-- Carousel inner -->
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="d-flex justify-content-between mb-1">
                   <div>
-                    <h3 class="display-3 text-white"><strong>23°C</strong></h3>
-                    <p class="mb-0 text-white" style="font-size: 0.8rem;">Coimbra, Portugal</p>
+                    <h3 class="display-3 text-white"><strong id="current-temperature">--°C</strong></h3>
+                    <p class="mb-0 text-white" style="font-size: 0.8rem;" id="city-name">--</p>
                   </div>
                   <div>
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu3.webp" width="100px">
+                    <img src="" width="100px" id="current-weather-icon">
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div id="demo2" data-mdb-carousel-init class="carousel slide" data-ride="carousel" style="border-top: 1px solid rgba(0, 0, 0, 0.175);">
-            <!-- Carousel inner -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" id="day-forecast">
               <div class="carousel-item active text-white">
                 <div class="d-flex justify-content-around text-center py-1">
-                  <div class="flex-column">
-                    <p class="small"><strong>21°C</strong></p>
+                  <div class="flex-column" id="forecast-1">
+                    <p class="small"><strong>--°C</strong></p>
                     <i class="fas fa-sun fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="mb-0"><strong>12:00</strong></p>
-                    <p class="mb-0 " style="font-size: .45rem;">PM</p>
+                    <p class="mb-0"><strong>--</strong></p>
+                    <p class="mb-0 " style="font-size: .45rem;">--</p>
                   </div>
-                  <div class="flex-column">
-                    <p class="small"><strong>2°C</strong></p>
+                  <div class="flex-column" id="forecast-2">
+                    <p class="small"><strong>--°C</strong></p>
                     <i class="fas fa-sun fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="mb-0"><strong>1:00</strong></p>
-                    <p class="mb-0 " style="font-size: .45rem;">PM</p>
+                    <p class="mb-0"><strong>--</strong></p>
+                    <p class="mb-0 " style="font-size: .45rem;">--</p>
                   </div>
-                  <div class="flex-column">
-                    <p class="small"><strong>20°C</strong></p>
+                  <div class="flex-column" id="forecast-3">
+                    <p class="small"><strong>--°C</strong></p>
                     <i class="fas fa-cloud fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="mb-0"><strong>2:00</strong></p>
-                    <p class="mb-0 " style="font-size: .45rem;">PM</p>
+                    <p class="mb-0"><strong>--</strong></p>
+                    <p class="mb-0 " style="font-size: .45rem;">--</p>
                   </div>
-                  <div class="flex-column">
-                    <p class="small"><strong>19°C</strong></p>
+                  <div class="flex-column" id="forecast-4">
+                    <p class="small"><strong>--°C</strong></p>
                     <i class="fas fa-cloud fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="mb-0"><strong>3:00</strong></p>
-                    <p class="mb-0 " style="font-size: .45rem;">PM</p>
+                    <p class="mb-0"><strong>--</strong></p>
+                    <p class="mb-0 " style="font-size: .45rem;">--</p>
                   </div>
-                  <div class="flex-column">
-                    <p class="small"><strong>18°C</strong></p>
+                  <div class="flex-column" id="forecast-5">
+                    <p class="small"><strong>--°C</strong></p>
                     <i class="fas fa-cloud-showers-heavy fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="mb-0"><strong>4:00</strong></p>
-                    <p class="mb-0 " style="font-size: .45rem;">PM</p>
+                    <p class="mb-0"><strong>--</strong></p>
+                    <p class="mb-0 " style="font-size: .45rem;">--</p>
                   </div>
                 </div>
               </div>
@@ -60,33 +58,28 @@
           </div>
           <div id="demo3" data-mdb-carousel-init class="carousel slide" data-ride="carousel" style="border-top: 1px solid rgba(0, 0, 0, 0.175);">
             <!-- Carousel inner -->
-            <div class="carousel-inner">
+            <div class="carousel-inner" id="weekly-forecast">
               <div class="carousel-item active text-white">
                 <div class="d-flex justify-content-around text-center py-1">
-                  <div class="flex-column">
-                    <p class="mb-0"><strong>Mon</strong></p>
+                  <div class="flex-column" id="weekly-forecast-1">
+                    <p class="mb-0"><strong>--</strong></p>
                     <i class="fas fa-sun fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="small"><strong>21°C</strong></p>
+                    <p class="small"><strong>--°C</strong></p>
                   </div>
-                  <div class="flex-column">
-                    <p class="mb-0"><strong>Tue</strong></p>
+                  <div class="flex-column" id="weekly-forecast-2">
+                    <p class="mb-0"><strong>--</strong></p>
                     <i class="fas fa-sun fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="small"><strong>20°C</strong></p>
+                    <p class="small"><strong>--°C</strong></p>
                   </div>
-                  <div class="flex-column">
-                    <p class="mb-0"><strong>Wed</strong></p>
+                  <div class="flex-column" id="weekly-forecast-3">
+                    <p class="mb-0"><strong>--</strong></p>
                     <i class="fas fa-cloud fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="small"><strong>16°C</strong></p>
+                    <p class="small"><strong>--°C</strong></p>
                   </div>
-                  <div class="flex-column">
-                    <p class="mb-0"><strong>Thu</strong></p>
+                  <div class="flex-column" id="weekly-forecast-4">
+                    <p class="mb-0"><strong>--</strong></p>
                     <i class="fas fa-cloud fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="small"><strong>17°C</strong></p>
-                  </div>
-                  <div class="flex-column">
-                    <p class="mb-0"><strong>Fri</strong></p>
-                    <i class="fas fa-cloud-showers-heavy fa-2x mb-2" style="color: #ddd;"></i>
-                    <p class="small"><strong>18°C</strong></p>
+                    <p class="small"><strong>--°C</strong></p>
                   </div>
                 </div>
               </div>
@@ -99,3 +92,74 @@
     </div>
   </div>
 </div>
+
+<script>
+  function fetchWeatherData() {
+      const apiKey = '0094fecf3c7b435fb3e134817240806';
+      const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=São Paulo&days=5`;
+
+      fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+              const currentTemperature = data.current.temp_c;
+              const cityName = data.location.name;
+              document.getElementById('current-temperature').textContent = `${currentTemperature}°C`;
+              document.getElementById('city-name').textContent = cityName;
+
+              // Update current weather icon
+              const currentWeatherIcon = document.getElementById('current-weather-icon');
+              const currentWeatherCode = data.current.condition.code;
+              if (currentWeatherCode === 1000) {
+                  currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/sun.svg';
+              } else if (currentWeatherCode >= 1003 && currentWeatherCode <= 1009) {
+                  currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/clouds.svg';
+              } else if (currentWeatherCode >= 1063 && currentWeatherCode <= 1189) {
+                  currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/rain.svg';
+              } else {
+                  currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/other.svg';
+              }
+
+              // Update the day forecast
+              const forecastHours = [7, 12, 18, 22];
+              for (let i = 0; i < forecastHours.length; i++) {
+                  const forecastTemperature = data.forecast.forecastday[0].hour.find(hour => (new Date(hour.time)).getHours() === forecastHours[i]).temp_c;
+                  const forecastWeatherCode = data.forecast.forecastday[0].hour.find(hour => (new Date(hour.time)).getHours() === forecastHours[i]).condition.code;
+                  const forecastIconElement = document.getElementById(`forecast-${i + 1}`).querySelector('i');
+                  if (forecastWeatherCode === 1000) {
+                      forecastIconElement.classList.add('fa-sun');
+                  } else if (forecastWeatherCode >= 1003 && forecastWeatherCode <= 1009) {
+                      forecastIconElement.classList.add('fa-cloud');
+                  } else if (forecastWeatherCode >= 1063 && forecastWeatherCode <= 1189) {
+                      forecastIconElement.classList.add('fa-cloud-showers-heavy');
+                  } else {
+                      forecastIconElement.classList.add('fa-question');
+                  }
+                  const time = forecastHours[i] > 12 ? forecastHours[i] - 12 + ' PM' : forecastHours[i] + ' AM';
+                  document.getElementById(`forecast-${i + 1}`).querySelector('p:nth-child(3)').innerHTML = `<strong>${time}</strong>`;
+                  document.getElementById(`forecast-${i + 1}`).querySelector('p:first-child').innerHTML = `<strong>${forecastTemperature}°C</strong>`;
+              }
+
+              // Update the weekly forecast
+              for (let i = 0; i < 4; i++) {
+                  const forecastTemperature = data.forecast.forecastday[i + 1].day.avgtemp_c;
+                  const forecastWeatherCode = data.forecast.forecastday[i + 1].day.condition.code;
+                  const weeklyForecastIconElement = document.getElementById(`weekly-forecast-${i + 1}`).querySelector('i');
+                  if (forecastWeatherCode === 1000) {
+                      weeklyForecastIconElement.classList.add('fa-sun');
+                  } else if (forecastWeatherCode >= 1003 && forecastWeatherCode <= 1009) {
+                      weeklyForecastIconElement.classList.add('fa-cloud');
+                  } else if (forecastWeatherCode >= 1063 && forecastWeatherCode <= 1189) {
+                      weeklyForecastIconElement.classList.add('fa-cloud-showers-heavy');
+                  } else {
+                      weeklyForecastIconElement.classList.add('fa-question');
+                  }
+                  const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][(new Date(data.forecast.forecastday[i + 1].date)).getDay()];
+                  document.getElementById(`weekly-forecast-${i + 1}`).querySelector('p:first-child').innerHTML = `<strong>${day}</strong>`;
+                  document.getElementById(`weekly-forecast-${i + 1}`).querySelector('p:last-child').innerHTML = `<strong>${forecastTemperature}°C</strong>`;
+              }
+          })
+          .catch(error => console.error('Error fetching weather data:', error));
+  }
+
+  fetchWeatherData();
+</script>
