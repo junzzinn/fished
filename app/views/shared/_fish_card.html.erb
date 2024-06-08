@@ -1,8 +1,62 @@
-<div class="container">
-  <div class="row fish-card shadow border d-flex flex-column align-items-center">
-    <%= image_tag fish.fishImage, alt: "fish Image", class: "fish-image" %>
+<div class="container"data-controller="modal">
+  <div class="row fish-card shadow border d-flex flex-column align-items-center" >
+    <%= image_tag fish.fishImage, alt: "fish Image", class: "fish-image", data: { action: "click->modal#showModal" } %>
     <div class="fish-name">
       <%= fish.name %>
     </div>
   </div>
-</div>
+
+
+  <!-- Modal Structure -->
+  <div class="modal" data-modal-target="modal">
+    <div class="modal-background" data-action="click->modal#hideModal"></div>
+    <div class="modal-content">
+      <!-- Any content you want to show in the modal -->
+      <div class="box">
+        <%= image_tag fish.fishImage, alt: "fish Image", class: "fish-image" %>
+        <div class="fish-name">
+          <h3 style="color: #40D3C4;"><%= fish.name %></h3>
+        </div>
+        <p>Bait: <%= fish.bait %></p>
+        <p>Stick: <%= fish.stick %></p>
+        <p>Clue: <%= fish.clue %></p>
+        <p>Hour: <%= fish.hour %></p>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close" data-action="click->modal#hideModal"></button>
+  </div>
+  </div>
+<style>
+  .modal.is-active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.86);
+    z-index: 40;
+  }
+
+  .modal-content {
+    position: relative;
+    background: white;
+    padding: 2rem;
+    z-index: 50;
+  }
+
+  .modal-close {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 60;
+    background: none;
+    border: none;
+    font-size: 2rem;
+  }
+</style>

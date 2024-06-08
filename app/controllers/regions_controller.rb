@@ -7,6 +7,7 @@ class RegionsController < ApplicationController
 
   def show
     @user = current_user
-    @region = Region.find(params[:id])
+    @id = params[:id]
+    @id!="-1" ? @region = Region.find(params[:id]) : ""
   end
 end
