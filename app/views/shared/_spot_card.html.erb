@@ -31,8 +31,11 @@
         <span class="m-2"><strong><%= spot.name %></strong></span>
       </div>
       <div class="col-2">
-        <%= link_to "#", style: "color: #40D3C4;" do %>
-          <span><i class="far fa-heart"></i></span>
+        <%= form_with(url: user_spots_path, method: :post, local: true) do |form| %>
+          <%= form.hidden_field :spot_id, value: spot.id %>
+          <a href="#" data-controller="favorite" data-action="click->favorite#toggle"  style="color: #40D3C4;" onclick="this.closest('form').submit(); return false;">
+            <span><i class="<%= @user.spots.include?(spot) ? "fas" : "far"%> fa-heart"></i></span>
+          </a>
         <% end %>
       </div>
     </div>
