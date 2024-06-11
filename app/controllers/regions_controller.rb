@@ -9,5 +9,6 @@ class RegionsController < ApplicationController
     @user = current_user
     @id = params[:id]
     @id!="-1" ? @region = Region.find(params[:id]) : ""
+    @a = @region.spots.last
   end
 end
