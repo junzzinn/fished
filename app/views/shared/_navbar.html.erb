@@ -19,7 +19,7 @@
       <% end %>
     </div>
     <div class="col-3 col-sm-3 d-flex justify-content-center align-items-center">
-      <%= link_to region_path(-1), class: "icon-button", data: { action: "click->icon-toggle#toggle", tab: "maps"} do %>
+      <%= link_to regions_path, class: "icon-button", data: { action: "click->icon-toggle#toggle", tab: "maps"} do %>
         <i class="far fa-map else" data-icon-toggle-target="icon" data-tab="maps"></i>
         <span>Maps</span>
       <% end %>

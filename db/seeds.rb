@@ -47,7 +47,7 @@ beach_names = [
   )
 
   region = Region.create!(
-    name: Faker::Address.city,
+    name: Faker::Address.country,
     regionImage: regionImage.sample
   )
 
