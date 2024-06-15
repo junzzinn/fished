@@ -280,6 +280,15 @@ data_region.each do |region_name, beach_list|
       region: region,
       spotImage: beach[:spotImage],
     )
+    user_spot = UserSpot.create!(
+      user_id: user1.id,
+      spot_id: spot1.id
+    )
+
+    user_spot = UserSpot.create!(
+      user_id: user2.id,
+      spot_id: spot1.id
+    )
     5.times do
       fish = fish_names.to_a.sample
 
@@ -297,15 +306,6 @@ data_region.each do |region_name, beach_list|
         fish_id: fish1.id
       )
 
-      user_spot = UserSpot.create!(
-        user_id: user1.id,
-        spot_id: spot1.id
-      )
-
-      user_spot = UserSpot.create!(
-        user_id: user2.id,
-        spot_id: spot1.id
-      )
     end
   end
 end

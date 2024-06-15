@@ -9,7 +9,7 @@ class UserSpotsController < ApplicationController
       "https://blog.123milhas.com/wp-content/uploads/2022/07/balneario-camboriu-curiosidades-sobre-a-cidade-do-litoral-catarinense-conexao123.jpg"
     ]
     if user_signed_in?
-      @regions = current_user.regions
+      @regions = current_user.regions.uniq { |obj| [obj.id, obj.id] }
       @user = current_user
     end
   end
