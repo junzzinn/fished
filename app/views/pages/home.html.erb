@@ -1,108 +1,37 @@
-<div class="welcome-message mt-3">
-  <% if @user_name.present? %>
-    <div class="d-flex justify-content-around">
-      <div style="min-width: 287px;"><p><strong>Hello <%= @user_name %></strong></p></div>
-        <div class="mt-2">
-          <%= render "shared/square_button", path: root_path, icon_class: "fas fa-bell" %>
-        </div>
-    </div>
-  <% else %>
-    <div class="weather-message d-flex ps-3" style="min-width: 287px;"><strong><p>Hello Guest</p></strong></p></div>
-  <% end %>
-</div>
-
-<div class="weather-message d-flex ps-3">
-  <p><strong>It's <span style="color: turquoise;">sunny</span> today.</strong></p>
-</div>
-
-<div class="row">
-  <div class="col-12">
-    <div class="w-full">
-      <div class="d-flex align-items-center justify-content-around">
-        <%= form_with model: @example, local: true do |form| %>
-          <div class="input-group mb-3 shadow" style="background-color: white; border-radius: 20px; margin-top: 20px;">
-            <%= form.text_field :name, class: "form-control", placeholder: "Search fishing spot...", style: "background-color: white; border-radius: 20px 0 0 0;" %>
-            <button class="btn btn-white" type="submit" style="background-color: white; border-radius: 0 20px 20px 0;">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        <% end %>
-        <% if @user_name.present? %>
-          <div class="ml-2">
-            <%= render "shared/square_button", path: root_path, icon_class: "fas fa-location-dot", class_name: "bubble" %>
-          </div>
-        <% end %>
-      </div>
+<div class="container">
+  <div class="row">
+    <%= image_tag "logo.png"%>
+  </div>
+  <div class="row mb-4" style="display: flex; align-items: center; justify-content: center;">
+    <div style="text-align: center;">
+      <span class="log-in-title" style="font-size: 40px">Welcome</span><br>
+      <span class="log-in-subtitle" style="font-size: 20px">Your Guide to Sea Success</span>
     </div>
   </div>
-
-<div class="icon-and-forecast">
-  <%= render "shared/complete_forecast" %>
+  <div class="row" style="background-color: #40D3C4;">
+    <div class="col-6">
+      <br><span class="log-in-title-white">See the information about your fishing spots</span>
+    </div>
+    <div class="col-6" style="display: flex; justify-content: center;">
+      <%= image_tag "t1.png", style: "width: 50%; transform: rotate(-10deg);" %>
+    </div>
+  </div>
+  <div class="row" style="display: flex; align-items: center;">
+    <div class="col-6" style="display: flex; justify-content: center;">
+      <%= image_tag "t2.png", style: "width: 50%; transform: rotate(10deg);" %>
+    </div>
+    <div class="col-6">
+      <br><span class="log-in-title">See all the nearby fishing regions</span>
+    </div>
+  </div>
+  <div class="row" style="background-color: #40D3C4; padding-bottom: 100px;">
+    <div class="col-6">
+      <br><span class="log-in-title-white">See the detailed information about stops and their fish</span>
+    </div>
+    <div class="col-6" style="display: flex; justify-content: center;">
+      <%= image_tag "t3.png", style: "width: 50%; transform: rotate(-10deg);" %>
+    </div>
+  </div>
 </div>
 
-<%= render "shared/flashes" %>
-<% button_to "logout", destroy_user_session_path, method: :delete, class: "btn btn-custom", style: "width: 70%" %>
 <%= render "shared/navbar" %>
-
-<h3 style="margin-top: 20px; padding: 8px 20px;">Locations</h3>
-<div class="buttons-container mt-3">
-  <button class="button <%= params[:location] == 'all' ? 'selected' : '' %>">All</button>
-  <button class="button <%= params[:location] == 'recently' ? 'selected' : '' %>">Recently</button>
-  <button class="button <%= params[:location] == 'favorites' ? 'selected' : '' %>">Favorites</button>
-</div>
-
-<div class="image-container">
-  <% @region_images.each do |image_url| %>
-    <img src="<%= image_url %>" alt="Image">
-  <% end %>
-</div>
-
-<% if user_signed_in? %>
-  <%= button_to "logout", destroy_user_session_path, method: :delete, class: "logout-button" %>
-<% end %>
-
-<style>
-  .logout-button {
-    border: none;
-    color: #676c6e;
-    text-decoration: none;
-    background-color: transparent;
-    margin-top: 150px;
-    font-weight: bold;
-  }
-
-  .button {
-    background-color: #ffffff;
-    border: 1px solid #000000;
-    border-radius: 20px;
-    padding: 8px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-  }
-
-  .button:hover {
-    background-color: turquoise;
-  }
-
-  .button.selected {
-    background-color: turquoise;
-  }
-
-  .buttons-container {
-    text-align: center;
-  }
-
-  .image-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    margin-top: 20px;
-  }
-
-  .image-container img {
-    width: 200px;
-    height: auto;
-    margin-right: 10px;
-    border-radius: 20px;
-    padding: 5px;
-  }
-</style>

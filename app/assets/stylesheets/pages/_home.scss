@@ -38,3 +38,47 @@
 .bubble {
   margin-left: 5px;
 }
+
+.logout-button {
+  border: none;
+  color: #676c6e;
+  text-decoration: none;
+  background-color: transparent;
+  margin-top: 150px;
+  font-weight: bold;
+}
+
+.button {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 8px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: turquoise;
+}
+
+.button.selected {
+  background-color: turquoise;
+}
+
+.buttons-container {
+  text-align: center;
+}
+
+.image-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+
+.image-container img {
+  width: 200px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 20px;
+  padding: 5px;
+}
