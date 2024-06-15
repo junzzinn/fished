@@ -2,22 +2,21 @@
 
 <script>
   function initMap() {
-    var initialLatLngString = document.getElementById("map<%=spot.id%>").dataset.initialLatlng;
+    var initialLatLngString = document.getElementById("map<%= spot.id %>").dataset.initialLatlng;
     var initialLatLng = JSON.parse(initialLatLngString);
 
-    var map = L.map('map<%=spot.id%>').setView(initialLatLng, 13);
+    var map = L.map('map<%= spot.id %>').setView(initialLatLng, 14);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
   }
 
+  document.addEventListener('DOMContentLoaded', initMap);
 
-  function scrollFishCards(direction) {
-    const container = document.getElementById('fish-cards-container');
+  function scrollFishCards(spotId, direction) {
+    const container = document.getElementById(`fish-cards-container-${spotId}`);
     const scrollAmount = 100; // Adjust this value for faster or slower scrolling
     container.scrollBy({ top: direction * scrollAmount, behavior: 'smooth' });
   }
-
-  document.addEventListener('DOMContentLoaded', initMap);
 </script>
 
 <style>
@@ -83,19 +82,19 @@
     </div>
     <div class="row">
       <div class="col-5 fish-cards-container">
-        <div class="scroll-arrow" onclick="scrollFishCards(-1)">
+        <div class="scroll-arrow" onclick="scrollFishCards(<%= spot.id %>, -1)">
           &#9650; <!-- Up arrow -->
         </div>
-        <div id="fish-cards-container" style="overflow-y: auto; height: 350px; scrollbar-width: none;">
+        <div id="fish-cards-container-<%= spot.id %>" style="overflow-y: auto; max-height: 400px;scrollbar-width: none;">
           <% spot.fishes.each do |fish| %>
             <%= render partial: "shared/fish_card", locals: { fish: fish } %>
           <% end %>
         </div>
-        <div class="scroll-arrow" onclick="scrollFishCards(1)">
+        <div class="scroll-arrow" onclick="scrollFishCards(<%= spot.id %>, 1)">
           &#9660; <!-- Down arrow -->
         </div>
       </div>
-      <div id="map<%=spot.id%>" class="map spot-card-container col-6 m-2" data-initial-latlng="<%= [spot.latitude, spot.longitude] %>" style="height: 400px;"></div>
+      <div id="map<%= spot.id %>" class="map spot-card-container col-6 m-2" data-initial-latlng="<%= [spot.latitude, spot.longitude] %>" style="height: 400px;"></div>
     </div>
   </div>
 </div>
