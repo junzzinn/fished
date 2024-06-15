@@ -5,7 +5,7 @@
     var initialLatLngString = document.getElementById("map<%=spot.id%>").dataset.initialLatlng;
     var initialLatLng = JSON.parse(initialLatLngString);
 
-    var map = L.map('map<%=spot.id%>').setView(initialLatLng, 4);
+    var map = L.map('map<%=spot.id%>').setView(initialLatLng, 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
   }
