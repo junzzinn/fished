@@ -1,29 +1,33 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="forecast"
 export default class extends Controller {
-  static targets = ["currentWeatherIcon", "temperature", "cityName"]
+  static targets = ["currentWeatherIcon", "temperature", "cityName"];
+
   connect() {
-    const city = this.cityNameTarget.innerText
-    this.fetchWeatherData(city)
+    const cityName = this.cityNameTarget.textContent.trim();
+    this.fetchWeatherData(cityName);
   }
-    fetchWeatherData(cityName) {
-      const apiKey = '0094fecf3c7b435fb3e134817240806';
-      const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}`;
 
-      fetch(apiUrl)
+  fetchWeatherData(cityName) {
+    const apiKey = '0094fecf3c7b435fb3e134817240806';
+    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=4`;
+
+    fetch(apiUrl)
       .then(response => {
-        if (response.ok){
-        return response.json()}})
-
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Erro ao buscar dados de previsão do tempo.');
+        }
+      })
       .then(data => {
-        console.log(data)
-        if (data.error == undefined){
-          console.log(this.temperatureTarget)
+        console.log(data);
+        if (!data.error) {
+          // Atualizar temperatura atual
           const currentTemperature = data.current.temp_c;
           this.temperatureTarget.textContent = `${currentTemperature}°C`;
-          this.cityNameTarget.textContent = cityName;
 
+          // Atualizar ícone do tempo atual
           const currentWeatherIcon = this.currentWeatherIconTarget;
           const currentWeatherCode = data.current.condition.code;
           if (currentWeatherCode === 1000) {
@@ -35,28 +39,31 @@ export default class extends Controller {
           } else {
             currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/other.svg';
           }
-          
-          const forecastHours = [7, 12, 18, 22];
-              for (let i = 0; i < forecastHours.length; i++) {
-                  const forecastTemperature = data.forecast.forecastday[0].hour.find(hour => (new Date(hour.time)).getHours() === forecastHours[i]).temp_c;
-                  const forecastWeatherCode = data.forecast.forecastday[0].hour.find(hour => (new Date(hour.time)).getHours() === forecastHours[i]).condition.code;
-                  const forecastIconElement = document.getElementById(`forecast-${i + 1}`).querySelector('i');
-                  if (forecastWeatherCode === 1000) {
-                      forecastIconElement.classList.add('fa-sun');
-                  } else if (forecastWeatherCode >= 1003 && forecastWeatherCode <= 1009) {
-                      forecastIconElement.classList.add('fa-cloud');
-                  } else if (forecastWeatherCode >= 1063 && forecastWeatherCode <= 1189) {
-                      forecastIconElement.classList.add('fa-cloud-showers-heavy');
-                  } else {
-                      forecastIconElement.classList.add('fa-question');
-                  }
-                  const time = forecastHours[i] > 12 ? forecastHours[i] - 12 + ' PM' : forecastHours[i] + ' AM';
-                  document.getElementById(`forecast-${i + 1}`).querySelector('p:nth-child(3)').innerHTML = `<strong>${time}</strong>`;
-                  document.getElementById(`forecast-${i + 1}`).querySelector('p:first-child').innerHTML = `<strong>${forecastTemperature}°C</strong>`;
-              }
+
+          // Atualizar previsão do tempo para os próximos dias
+          const forecasts = data.forecast.forecastday.slice(1, 5); // Pegar os próximos 4 dias
+          const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+          forecasts.forEach((forecast, index) => {
+            const forecastElement = this.element.querySelector(`#forecast-${index + 1}`);
+            const dayOfWeek = daysOfWeek[new Date(forecast.date).getDay()];
+            forecastElement.querySelector('p:nth-of-type(1)').textContent = `${forecast.day.avgtemp_c}°C`;
+            // Define o ícone baseado no código do tempo
+            if (forecast.day.condition.code === 1000) {
+              forecastElement.querySelector('i').className = 'fas fa-sun fa-2x my-1';
+            } else if (forecast.day.condition.code >= 1003 && forecast.day.condition.code <= 1009) {
+              forecastElement.querySelector('i').className = 'fas fa-cloud fa-2x my-1';
+            } else if (forecast.day.condition.code >= 1063 && forecast.day.condition.code <= 1189) {
+              forecastElement.querySelector('i').className = 'fas fa-cloud-showers-heavy fa-2x my-1';
+            } else {
+              forecastElement.querySelector('i').className = 'fas fa-cloud fa-2x my-1';
+            }
+            forecastElement.querySelector('p:nth-of-type(2)').textContent = dayOfWeek;
+          });
+        } else {
+          throw new Error('Erro ao buscar dados de previsão do tempo.');
         }
       })
-      .catch(error => console.log('Error fetching weather data:', error));
-    }
-
+      .catch(error => console.error('Erro ao buscar dados de previsão do tempo:', error));
+  }
 }
