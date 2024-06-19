@@ -22,7 +22,7 @@
     </div>
     <span style="color: turquoise; padding-left: 10px">Weather in your region!</span>
     <div class="icon-and-forecast">
-      <%= render "shared/complete_forecast" %>
+      <%= render partial: "shared/complete_forecast", locals: { spot: @spot, path: "root" } %>
     </div>
     <div class="row">
       <h3 style="margin-top: 20px; padding: 8px 20px;">Locations</h3>

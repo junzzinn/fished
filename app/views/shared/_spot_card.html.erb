@@ -78,7 +78,7 @@
       </div>
     </div>
     <div class="row">
-      <%= render "shared/complete_forecast" %>
+      <%= render partial: "shared/complete_forecast", locals: { spot: spot, path: "maps"} %>
     </div>
     <div class="row">
       <div class="col-5 fish-cards-container">

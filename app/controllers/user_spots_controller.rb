@@ -11,6 +11,7 @@ class UserSpotsController < ApplicationController
     if user_signed_in?
       @regions = current_user.regions.uniq { |obj| [obj.id, obj.id] }
       @user = current_user
+      @spot = Spot.find(1)
     end
   end
 
