@@ -1,14 +1,10 @@
 <% if user_signed_in? %>
   <div class="container">
-    <div class="row mt-2">
-      <div class="col-1">
-        <div class="mb-3" data-controller="icon-toggle">
-          <%= link_to root_path, class: "btn", data: { action: "click->icon-toggle#toggle", tab: "home"} do %>
-            <i class="fas fa-chevron-left"></i>
-          <% end %>
-        </div></div>
+    <div class="row mt-5">
+      <div class="col-1"></div>
       <div class="col-9">
-
+        <h2>Hello <%= @user.name %></h2>
+        <p style="font-size: 18px">It's <span style="color: turquoise;">sunny</span> today.</p>
       </div>
       <div class="col-2">
         <%= button_to destroy_user_session_path, method: :delete, class: "square-button" do %>
@@ -16,30 +12,6 @@
         <% end %>
       </div>
     </div>
-    <div class="row justify-content-center m-4">
-      <h2 style="color: #40D3C4;"><strong>Hello <%= @user.name %></strong></h2>
-      <p>It's <span style="color: turquoise;">sunny</span> today.</p>
-    </div>
-    <span style="color: turquoise; padding-left: 10px">Weather in your region!</span>
-    <div class="icon-and-forecast">
-      <%= render partial: "shared/complete_forecast", locals: { spot: @spot, path: "root" } %>
-    </div>
-    <div class="row">
-      <h3 style="margin-top: 20px; padding: 8px 20px;">Locations</h3>
-    </div>
-
-    <div class="row">
-      <div class="image-container" style="scrollbar-width: none;">
-        <% @region_images.each do |image_url| %>
-          <img src="<%= image_url %>" alt="Image">
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row justify-content-center mt-5">
-      <h4 class="text-center" style="color: #40D3C4;"><strong><%= @user.name %>'s favorites</strong></h4>
-    </div>
-
     <div class="row mt-1">
       <span style="font-size: 12px; color: #999898; padding-left: 50px">Search for your best fishing spots</span>
     </div>
@@ -59,6 +31,13 @@
         </div>
 
       </div>
+    </div>
+    <span style="color: #999898; padding-left: 10px">Weather in your region!</span>
+    <div class="icon-and-forecast">
+      <%= render "shared/complete_forecast" %>
+    </div>
+    <div class="row">
+      <h3 style="margin-top: 20px; padding: 8px 20px;">Favorite Locations</h3>
     </div>
 
   </div>
