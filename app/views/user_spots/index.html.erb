@@ -34,7 +34,7 @@
     </div>
     <span style="color: #999898; padding-left: 10px">Weather in your region!</span>
     <div class="icon-and-forecast">
-      <%= render "shared/complete_forecast" %>
+      <%= render partial: "shared/complete_forecast", locals: { spot: @spot, path: "maps"} %>
     </div>
     <div class="row">
       <h3 style="margin-top: 20px; padding: 8px 20px;">Favorite Locations</h3>
