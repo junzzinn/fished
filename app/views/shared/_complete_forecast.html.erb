@@ -12,7 +12,7 @@
                     <p class="mb-0 text-white" style="font-size: 0.8rem;" id="city-name<%= spot.id %>">--</p>
                   </div>
                   <div>
-                    <img src="" width="100px" id="current-weather-icon<%= spot.id %>">
+                    <i class="fas fa-sun fa-2x mb-2" style="color: #ddd;" id="current-weather-icon<%= spot.id %>"></i>
                   </div>
                 </div>
               </div>
@@ -104,13 +104,13 @@
         const currentWeatherIcon = document.getElementById(`current-weather-icon${spotId}`);
         const currentWeatherCode = data.current.condition.code;
         if (currentWeatherCode === 1000) {
-          currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/sun.svg';
+          currentWeatherIcon.classList.add('fa-sun');
         } else if (currentWeatherCode >= 1003 && currentWeatherCode <= 1009) {
-          currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/clouds.svg';
+          currentWeatherIcon.classList.add('fa-cloud');
         } else if (currentWeatherCode >= 1063 && currentWeatherCode <= 1189) {
-          currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/rain.svg';
+          currentWeatherIcon.classList.add('fa-cloud-showers-heavy');
         } else {
-          currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/other.svg';
+          currentWeatherIcon.classList.add('fa-question');
         }
 
         const forecastHours = [7, 12, 18, 22];
