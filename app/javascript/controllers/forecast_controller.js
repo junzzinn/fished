@@ -31,13 +31,13 @@ export default class extends Controller {
           const currentWeatherIcon = this.currentWeatherIconTarget;
           const currentWeatherCode = data.current.condition.code;
           if (currentWeatherCode === 1000) {
-            currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/sun.svg';
+            currentWeatherIcon.className = 'fas fa-sun fa-2x my-1';
           } else if (currentWeatherCode >= 1003 && currentWeatherCode <= 1009) {
-            currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/clouds.svg';
+            currentWeatherIcon.className = 'fas fa-cloud fa-2x my-1';
           } else if (currentWeatherCode >= 1063 && currentWeatherCode <= 1189) {
-            currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/rain.svg';
+            currentWeatherIcon.className = 'fas fa-cloud-showers-heavy fa-2x my-1';
           } else {
-            currentWeatherIcon.src = 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/other.svg';
+            currentWeatherIcon.className = 'fas fa-cloud fa-2x my-1';
           }
 
           // Atualizar previsão do tempo para os próximos dias
