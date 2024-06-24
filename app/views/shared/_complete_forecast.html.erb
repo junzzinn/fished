@@ -52,7 +52,6 @@
             </div>
           </div>
           <div id="demo3" data-mdb-carousel-init class="carousel slide" data-ride="carousel" style="border-top: 1px solid rgba(0, 0, 0, 0.175);">
-            <!-- Carousel inner -->
             <div class="carousel-inner" id="weekly-forecast">
               <div class="carousel-item active text-white">
                 <div class="d-flex justify-content-around text-center py-1">
@@ -90,7 +89,7 @@
 
 <script>
   function fetchWeatherData(cityName, spotId) {
-    const apiKey = '0094fecf3c7b435fb3e134817240806';
+    const apiKey = "<%= ENV['API_KEY'] %>";
     const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=5`;
 
     fetch(apiUrl)
