@@ -83,7 +83,7 @@
     <div class="row">
       <div class="col-5 fish-cards-container">
         <div class="scroll-arrow" onclick="scrollFishCards(<%= spot.id %>, -1)">
-          &#9650;
+          &#9650; <!-- Up arrow -->
         </div>
         <div id="fish-cards-container-<%= spot.id %>" style="overflow-y: auto; max-height: 400px;scrollbar-width: none;">
           <% spot.fishes.each do |fish| %>
@@ -91,7 +91,7 @@
           <% end %>
         </div>
         <div class="scroll-arrow" onclick="scrollFishCards(<%= spot.id %>, 1)">
-          &#9660; 
+          &#9660; <!-- Down arrow -->
         </div>
       </div>
       <div id="map<%= spot.id %>" class="map spot-card-container col-6 m-2" data-initial-latlng="<%= [spot.latitude, spot.longitude] %>" style="height: 400px;"></div>

@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   fetchWeatherData(cityName) {
-    const apiKey = '';
+    const apiKey = '0094fecf3c7b435fb3e134817240806';
     const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=4`;
 
     fetch(apiUrl)
@@ -23,9 +23,11 @@ export default class extends Controller {
       .then(data => {
         console.log(data);
         if (!data.error) {
+          // Atualizar temperatura atual
           const currentTemperature = data.current.temp_c;
           this.temperatureTarget.textContent = `${currentTemperature}°C`;
 
+          // Atualizar ícone do tempo atual
           const currentWeatherIcon = this.currentWeatherIconTarget;
           const currentWeatherCode = data.current.condition.code;
           if (currentWeatherCode === 1000) {
@@ -38,13 +40,15 @@ export default class extends Controller {
             currentWeatherIcon.className = 'fas fa-cloud fa-2x my-1';
           }
 
-          const forecasts = data.forecast.forecastday.slice(1, 5);
+          // Atualizar previsão do tempo para os próximos dias
+          const forecasts = data.forecast.forecastday.slice(1, 5); // Pegar os próximos 4 dias
           const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
           forecasts.forEach((forecast, index) => {
             const forecastElement = this.element.querySelector(`#forecast-${index + 1}`);
             const dayOfWeek = daysOfWeek[new Date(forecast.date).getDay()];
             forecastElement.querySelector('p:nth-of-type(1)').textContent = `${forecast.day.avgtemp_c}°C`;
+            // Define o ícone baseado no código do tempo
             if (forecast.day.condition.code === 1000) {
               forecastElement.querySelector('i').className = 'fas fa-sun fa-2x my-1';
             } else if (forecast.day.condition.code >= 1003 && forecast.day.condition.code <= 1009) {
