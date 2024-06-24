@@ -21,10 +21,8 @@ class UserSpotsController < ApplicationController
     user_spot = UserSpot.find_by(user: @user, spot: @spot)
 
     if user_spot
-      # If the user already has the spot, delete the UserSpot record
       user_spot.destroy
     else
-      # If the user does not have the spot, create a new UserSpot record
       UserSpot.create!(user: @user, spot: @spot)
     end
   end
